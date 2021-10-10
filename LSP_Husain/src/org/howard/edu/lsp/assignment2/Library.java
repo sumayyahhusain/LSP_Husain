@@ -3,8 +3,7 @@
 
 package org.howard.edu.lsp.assignment2;
 import java.util.*;
-import java.util.Arrays;
-import java.io.*;
+
 
 public class Library {
 	// Add the missing implementation (methods and data definitions) to this class 
@@ -19,63 +18,56 @@ public class Library {
 		}
 		
 		public void addBook(Book title) {
-			Book s1 = title;
-			bookLibrary.add(s1);
-			return;
+			bookLibrary.add(title);
 		}
 		
-		public static String printOpeningHours() {
+		public void printOpeningHours() {
 			System.out.println(hours);
-			return hours;
 		}
 		
-		public String printAddress() {
+		public void printAddress() {
 			System.out.println(address);
-			return address;
 		}
 		
-		public String borrowBook(String title) {
+		public void borrowBook(String title) {
 			//System.out.println("Borrowing " + title);
 			
-			if(bookLibrary.contains(title)) {
-				if(Book.isBorrowed()) {
-					System.out.println("Sorry, this book is already borrowed.");
-					return("Sorry, this book is already borrowed.");
-				} else {
-					System.out.println("You successfully borrowed " + title + ":");
-					return("You successfully borrowed " + title);
+			for (int i=0; i<bookLibrary.size(); i++) {
+				Book index = bookLibrary.get(i);
+				if(index.getTitle() == title) {
+					if(index.isBorrowed() == false) {
+						index.borrowed();
+						System.out.println("You successfully borrowed " + title + "!");
+					} else {
+						System.out.println("Sorry, this book is not in our catalog.");
+					}
 				}
-			} else {
-				System.out.println("Sorry, this book is not in our catalog.");
-				return ("Sorry, this book is not in our catalog.");
 			}
-	
 		}
 		
-		public String printAvailableBooks() {
+		public void printAvailableBooks() {
 			
-			//System.out.println(Arrays.asList(bookLibrary));
-			//System.out.println(Arrays.toString(bookLibrary));
-			
-			Book x;
-			for (Book i : bookLibrary) {
-				x = i;
-				System.out.println(x.toString());
+			if(bookLibrary.size() == 0) {
+				System.out.println("No books in catalog.");
 			}
 			
-//			if(bookLibrary == null) {
-//				System.out.println("No books in catalog.");
-//			} else {
-//				System.out.println(bookLibrary);
-//			}
-			return "test";
+			for(int i = 0; i < bookLibrary.size(); i++) {
+				Book index = bookLibrary.get(i);
+				if(index.isBorrowed() == false) {
+					System.out.println(index.getTitle());
+				}
+			}
 		}
 		
-		public String returnBook(String title) {
-			Book.returned();
-			System.out.println("You successfully returned " + title + "!");
+		public void returnBook(String title) {
 			
-			return "Success";
+			for(int i=0; i<bookLibrary.size(); i++) {
+				Book index = bookLibrary.get(i);
+				if(index.getTitle() == title) {
+					index.returned();
+					System.out.println("You successfully returned " + title + "!");
+				}
+			}
 		}
 
 		public static void main(String[] args) { 

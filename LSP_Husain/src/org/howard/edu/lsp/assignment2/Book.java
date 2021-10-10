@@ -4,7 +4,7 @@ import java.util.*;
 public class Book {
 	
 	private String title;
-	private static boolean borrowed; 
+	private boolean borrowed; 
 	
 
 	// Creates a new Book 
@@ -21,13 +21,13 @@ public class Book {
 	}
 	
 	// Marks the book as not rented 
-	public static void returned() { 
+	public void returned() { 
 		// Implement this method 
 		borrowed = false;
 	}
 	
 	// Returns true if the book is rented, false otherwise public 
-	public static boolean isBorrowed() { 
+	public boolean isBorrowed() { 
 		// Implement this method  
 		
 		if(borrowed) {
@@ -38,9 +38,9 @@ public class Book {
 	}
 	
 	// Returns the title of the book public 
-	public String getTitle(String title) { 
+	public String getTitle() { 
 		// Implement this method 
-		return title;
+		return this.title;
 	}
 
 }
