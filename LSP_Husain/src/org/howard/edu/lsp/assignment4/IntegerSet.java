@@ -1,3 +1,6 @@
+/**
+ * @author sumayyahhusain
+ */
 package org.howard.edu.lsp.assignment4;
 
 import java.util.ArrayList;
@@ -11,26 +14,36 @@ public class IntegerSet extends Exception {
 	private List<Integer> set = new ArrayList<Integer>();
 
 	
-	// Default Constructor
+	/**
+	 * Default Constructor
+	 * @param ArrayList<Integer>s
+	 */
 	public void Set(ArrayList<Integer> s) {
 		this.set = s;
 	};
 
 	
-	// Clears the internal representation of the set
+	/**
+	 * Clears the internal representation of the set
+	 */
 	public void clear() {
 		set.clear();
 	};
 
 	
-	// Returns the length of the set
+	/**
+	 * Get length of set
+	 * @return integer representation of length of set
+	 */
 	public int length() {
 		return set.size();
 	};
 
 	
-	/** Returns true if the 2 sets are equal, false otherwise;
-	* Two sets are equal if they contain all of the same values in ANY order.
+	/** 
+	 * Two sets are equal if they contain all of the same values in ANY order.
+	 * @param IntegerSet 2
+	 * @return true if the 2 sets are equal, false otherwise
 	*/
 	public boolean equals(IntegerSet set2) {
 		
@@ -52,7 +65,11 @@ public class IntegerSet extends Exception {
 	}; 
 
 	
-	// Returns true if the set contains the value, otherwise false
+	/**
+	 * Check if specified value is in set
+	 * @param value
+	 * @return true if the set contains the value, otherwise false
+	 */
 	public boolean contains(int value) {
 		if(set.contains(value) == true) {
 			return true;
@@ -61,8 +78,11 @@ public class IntegerSet extends Exception {
 		}
 	};    
 
-	
-	// Returns the largest item in the set; Throws a IntegerSetException if the set is empty 
+	/**
+	 * Find largest value in set
+	 * @return number of greatest value in the given set
+	 * @throws IntegerSetException if set is empty
+	 */ 
 	public int largest() throws IntegerSetException {
 		if(set.size() == 0) {
 			throw new IntegerSetException("Exception from largest because set is empty.");
@@ -71,8 +91,11 @@ public class IntegerSet extends Exception {
 		}
 	}; 
 
-	
-	// Returns the smallest item in the set; Throws a IntegerSetException if the set is empty
+	/**
+	 * Find smallest value in set
+	 * @return number of smallest value in the given set
+	 * @throws IntegerSetException is set is empty
+	 */
 	public int smallest() throws IntegerSetException {
 		if(set.size() == 0) {
 			throw new IntegerSetException("Exception from smallest because set is empty.");
@@ -81,15 +104,21 @@ public class IntegerSet extends Exception {
 		}
 	}
 
-	
-	// Adds an item to the set or does nothing it already there	
+	/**
+	 * Adds an item to the set or does nothing if already there
+	 * @param integer item
+	 */
  	public void add(int item) {
- 		set.add(item);
+ 		if(set.contains(item) != true) {
+ 			set.add(item);
+ 		}
  	}; 
 
- 	
-	// Removes an item from the set or does nothing if not there
- 	//Throws a IntegerSetException of the set is empty
+ 	/**
+ 	 * Removes an item from the set or does nothing if not there
+ 	 * @param integer item
+ 	 * @throws IntegerSetException if set is empty
+ 	 */
  	public void remove(int item) throws IntegerSetException{
  		if(set.size() == 0) {
  			throw new IntegerSetException("Exception thrown by remove because set is empty.");
@@ -104,8 +133,10 @@ public class IntegerSet extends Exception {
  		}
  	};  
 
- 	
- 	// Set union
+ 	/**
+ 	 * Set Union
+ 	 * @param IntegerSet intSetb
+ 	 */
  	public void union(IntegerSet intSetb) {
  		List<Integer> b = intSetb.set;
  		for(int i = 0; i < b.size(); i++) {
@@ -115,8 +146,11 @@ public class IntegerSet extends Exception {
  		set = listWithoutDuplicates;
  	};
 
- 	
- 	// Set intersection
+ 	/**
+ 	 * Find intersection of two sets
+ 	 * @param IntegerSet intSetb
+ 	 * @return list containing integers that exist in both sets
+ 	 */
  	public List<Integer> intersect(IntegerSet intSetb) {
  		List<Integer> b = intSetb.set;
  		List<Integer> intersection = new ArrayList<Integer>();
@@ -129,8 +163,11 @@ public class IntegerSet extends Exception {
  		return intersection;
  	}; 
 
- 	
- 	// Set difference, i.e., s1 –s2
+ 	/**
+ 	 * Difference: Opposite of intersection 
+ 	 * @param IntegerSet intSetb
+ 	 * @return list containing integers that are unique to both sets
+ 	 */
  	public List<Integer> diff(IntegerSet intSetb) {
  		List<Integer> b = intSetb.set;
  		List<Integer> difference = new ArrayList<Integer>();
@@ -144,8 +181,10 @@ public class IntegerSet extends Exception {
  		
  	}
 
- 	
- 	// Returns true if the set is empty, false otherwise
+ 	/**
+ 	 * Check size of list to see if set is empty
+ 	 * @return true if the set is empty, false otherwise
+ 	 */
  	public boolean isEmpty() {
  		if(set.size() == 0) {
  			return true;
@@ -154,8 +193,10 @@ public class IntegerSet extends Exception {
  		}
  	}
 
- 	
- 	// Return String representation of your set
+ 	/**
+ 	 * Convert set to string
+ 	 * @return string representation of set
+ 	 */
  	public String toString() {
  		String stringList = "";
  		for(int i = 0; i < set.size(); i++) {

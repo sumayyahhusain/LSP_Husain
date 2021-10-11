@@ -3,6 +3,7 @@ package org.howard.edu.lsp.assignment4;
 import java.util.ArrayList;
 import org.howard.edu.lsp.assignment4.IntegerSet;
 
+// Driver class will test IntegerSet
 public class Driver {
 	
 	public static void main (String[] args) throws IntegerSetException{
@@ -12,6 +13,7 @@ public class Driver {
 		IntegerSet set1 = new IntegerSet();
 		set1.add(1);
 		set1.add(2);
+		set1.add(3);
 		set1.add(3);
 	
 		System.out.println("Set1 looks like: " + set1.toString());
