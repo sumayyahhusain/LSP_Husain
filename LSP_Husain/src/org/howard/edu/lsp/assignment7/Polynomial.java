@@ -67,7 +67,7 @@ public class Polynomial {
 	
 	/**
 	 * return all terms of polynomial in single line
-	 * @return
+	 * @return formatted string polynomial
 	 */
 	public String polynomialToString() {
 		String strPolynomial = "";
