@@ -44,7 +44,7 @@ public class Polynomial {
 	 * @param p
 	 * @return product
 	 */
-	public String product (Polynomial p) {
+	public String product (Polynomial pol) {
 		String prod;
 		int coeff = 1;
 		int exp = 0;
